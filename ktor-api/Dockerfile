@@ -3,7 +3,7 @@ WORKDIR /app
 
 COPY gradlew build.gradle.kts settings.gradle.kts gradle.properties ./
 COPY gradle ./gradle
-COPY src ./src
+COPY src .ktor-api/src
 
 RUN chmod +x gradlew && ./gradlew clean bootJar --no-daemon
 
