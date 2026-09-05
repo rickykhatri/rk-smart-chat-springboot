@@ -1680,6 +1680,18 @@
       `.trim();
     }
 
+    /**
+     * Periodically ping the backend to keep the session alive.
+     */
+    function keepAlive() {
+      fetch(`https://rksmartchat.onrender.com/api/health`, {
+        method: "GET"
+      }).catch(() => { });
+    }
+
+    keepAlive();
+    setInterval(keepAlive, 10 * 60 * 1000);
+
     function parseSearchResultLine(line) {
       const markdownLinkMatch = line.match(/^\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)$/i);
       if (markdownLinkMatch) {

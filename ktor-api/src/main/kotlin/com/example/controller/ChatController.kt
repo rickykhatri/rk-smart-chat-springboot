@@ -482,4 +482,8 @@ return if (shouldFallbackToGoogle(reply)) {
             append("If a user asks for age from a birth date, calculate the exact age from the current date before answering.")
         }
     }
+
+    @RequestMapping("/health")
+    fun healthCheck(): ResponseEntity<Map<String, String>> {
+        return ResponseEntity.ok(mapOf("status" to "ok"))   
 }
