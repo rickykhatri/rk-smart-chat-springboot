@@ -1,0 +1,22 @@
+
+name: Keep Render App Alive
+
+on:
+  schedule:
+    # Run every 10 minutes
+    - cron: "*/10 * * * *"
+
+  # Allows you to run it manually from GitHub
+  workflow_dispatch:
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Render health endpoint
+        run: |
+          curl --fail --silent --show-error \
+            --max-time 30 \
+            "https://rksmartchat.onrender.com/api/health"
+
