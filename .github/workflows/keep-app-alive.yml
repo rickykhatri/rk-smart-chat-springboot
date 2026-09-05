@@ -18,5 +18,5 @@ jobs:
         run: |
           curl --fail --silent --show-error \
             --max-time 30 \
-            "https://rksmartchat.onrender.com/api/health"
+            "https://rksmartchat.onrender.com/health"
 
