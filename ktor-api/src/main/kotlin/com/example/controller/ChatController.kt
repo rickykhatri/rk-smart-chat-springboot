@@ -483,7 +483,7 @@ return if (shouldFallbackToGoogle(reply)) {
         }
     }
 
-    @RequestMapping("/health")
+    @GetMapping("/health")
     fun healthCheck(): ResponseEntity<Map<String, String>> {
         return ResponseEntity.ok(mapOf("status" to "ok"))   
     }
